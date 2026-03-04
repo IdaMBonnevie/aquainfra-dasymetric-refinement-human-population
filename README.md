@@ -1,0 +1,2 @@
+# aquainfra-dasymetric-refinement-human-population
+A Toolbox for Dasymetric Population Mapping of Human Population from LAU level to other zones, e.g., river catchments.  This repository provides an R-based **Dasymetric Mapping Toolbox** implementing a full workflow using **EU LAU**, **CORINE**, and **Census** data. It follows the **Data-to-Knowledge (D2K)** framework of the **AquaINFRA** project.
