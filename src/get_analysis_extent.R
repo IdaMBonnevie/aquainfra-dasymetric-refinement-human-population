@@ -20,7 +20,7 @@ options(scipen = 100, digits = 4)
 args <- commandArgs(trailingOnly = TRUE)
 
 if (length(args) != 3) {
-  stop("Usage: Rscript src/get_analysis_extent.R <clau_focus_selected_rds_path> <lau_reference_selected_rds_path> <output_analysis_extent_gpkg_path>", call. = FALSE)
+  stop("Usage: Rscript src/get_analysis_extent.R <lau_focus_selected_rds_path> <lau_reference_selected_rds_path> <output_analysis_extent_gpkg_path>", call. = FALSE)
 }
 
 lau_focus_selected_rds_path <- args[1]
@@ -35,7 +35,7 @@ tryCatch({
   lau_in_catchment_focus <- readRDS(lau_focus_selected_rds_path)
   
   # Read spatial reference object
-  lau_reference_selected_rds_path <- readRDS(lau_reference_selected_rds_path)
+  lau_in_catchment_reference <- readRDS(lau_reference_selected_rds_path)
   
   # Get analysis extent 
   if (nrow(lau_in_catchment_focus) > 0) {
