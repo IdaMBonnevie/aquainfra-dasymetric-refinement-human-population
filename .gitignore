@@ -3,3 +3,6 @@
 .RData
 .Rproj.user
 .Renviron
+
+# python
+__pycache__
