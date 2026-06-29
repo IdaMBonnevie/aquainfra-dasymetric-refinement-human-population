@@ -1,0 +1,44 @@
+# /.binder/environment.yml
+# This file specifies the complete computational environment using Conda.
+name: human-population-toolbox
+channels:
+  - conda-forge # Use conda-forge as the primary (and only) channel
+dependencies:
+  # --- 1. R Runtime ---
+  - r-base=4.3 # The R language interpreter (version 4.3)
+
+  # --- 2. Core System Geospatial Libs (KEEP ALL) ---
+  - gdal # Geospatial Data Abstraction Library
+  - proj # Library for coordinate reference system (CRS) transformations
+  - geos # Geometry Engine, Open Source
+  - udunits2 # Library for handling scientific units
+
+  # --- 3. R Packages (Conda-Installed) ---
+  - r-sf # Simple Features
+  - r-terra # Spatial Data Analysis
+  - r-dplyr # Data Manipulation
+  - r-areal # Areal weighted interpolation
+  - r-classint # Calculate class breaks
+  - r-ggplot2 # Data visualization
+  - r-units # Unit conversions
+  - r-rlang # Low-level R programming tools
+  - r-tidyverse # A collection of R packages for data science
+  - r-rcolorbrewer # Color palettes for maps
+  - pandoc # Document converter (NEEDED for htmlwidgets)
+  - r-curl # Dependency for R's internal package downloader
+  - r-codetools # Solves 'terra' warnings
+  - r-leaflet
+  - r-htmlwidgets
+
+  # --- 4. R Packages (added for human-population-toolbox scripts) ---
+  - r-plotly # Interactive plots (library(plotly))
+  - r-tmap # Thematic maps (library(tmap))
+  - r-metrics # Evaluation metrics: RMSE, MAE, etc. (library(Metrics))
+  - r-arrow # Apache Arrow / Parquet I/O (library(arrow))
+  - r-httr # HTTP requests (library(httr))
+
+  # (Packages missed during optimization)
+  # r-eurostat is REMOVED here and installed via CRAN in the Dockerfile
+  - r-giscor # library(giscoR)
+  - r-remotes
+  - r-foreign
