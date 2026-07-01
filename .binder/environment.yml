@@ -39,6 +39,6 @@ dependencies:
 
   # (Packages missed during optimization)
   # r-eurostat is REMOVED here and installed via CRAN in the Dockerfile
-  - r-giscor # library(giscoR)
+  # - r-giscor # library(giscoR) is REMOVED
   - r-remotes
   - r-foreign
