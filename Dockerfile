@@ -27,13 +27,14 @@ SHELL ["/bin/bash", "-c"]
 RUN conda install -n base -c conda-forge mamba -y
 
 # 6. (OPTIMIZED) Create the Conda environment using Mamba
-# Installs all dependencies defined in environment.yml. This installs all packages *except* eurostat. Cleans cache to reduce image size.
+# Installs all dependencies defined in environment.yml. This installs all packages *except* eurostat and giscoR. Cleans cache to reduce image size.
 RUN mamba env update -n base -f /app/environment.yml -y && \
     mamba clean --all -f -y
 
-# 7. (FIX) Install the latest 'eurostat' from CRAN
+# 7. (FIX) Install the latest 'eurostat' and 'giscoR' from CRAN
 # This bypasses the conda-forge version issue and fixes the '410 Gone' API error.
 RUN /opt/conda/bin/R -e "install.packages('eurostat', repos='https://cloud.r-project.org/', dependencies=TRUE)"
+RUN /opt/conda/bin/R -e "install.packages('giscoR', repos='https://cloud.r-project.org/', dependencies=TRUE)"
 
 # 8. Copy R scripts (reusable functions) into the standard D2K source folder
 # Adds reusable R scripts into the container
